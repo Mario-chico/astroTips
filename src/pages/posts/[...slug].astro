@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("tips");
+	return posts.map((post) => {
+		return {
+			params: { slug: post.slug },
+			props: post,
+		};
+	});
+}
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Base title="Tips de astro">
+	<Header title="React TypeScript component" />
+	<Content />
+</Base>
