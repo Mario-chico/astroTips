@@ -1,4 +1,5 @@
 ---
+import { formatDate } from "../utils/date";
 const {
 	content: { title, pubDate, image, tags },
 } = Astro.props;
@@ -13,7 +14,9 @@ const {
 			<span
 				class="flex flex-col sm:gap-y-2 md:flex-row md:items-center md:gap-y-0 md:divide-x"
 			>
-				<time datetime=`${pubDate}` class="text-base text-gray-500"></time>
+				<time datetime=`${pubDate}` class="text-base text-gray-500"
+					>{formatDate(pubDate)}</time
+				>
 				{
 					tags.map((tag: unknown) => (
 						<span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">

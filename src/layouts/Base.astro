@@ -1,4 +1,5 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
 export interface Props {
 	title: string;
 }
@@ -7,27 +8,24 @@ console.log("title" + title);
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{title}</title>
-	</head>
+<html lang="es">
+	<BaseHead
+		title="Tips de alto rendimiento"
+		description="Alto rendimiento en cualquier área de tu vida"
+	/>
 	<body class="h-screen bg-slate-900">
 		<div class="flex-col p-4 md:pd-8 mx-auto mt-4">
 			<div class="bg-white shadow rounded p-4">
 				<slot />
 			</div>
 		</div>
-	</body>
+	</body><style>
+		h1 {
+			color: aqua;
+		}
+
+		h2 {
+			color: blueviolet;
+		}
+	</style>
 </html>
-
-<style>
-	h1 {
-		color: aqua;
-	}
-
-	h2 {
-		color: blueviolet;
-	}
-</style>
